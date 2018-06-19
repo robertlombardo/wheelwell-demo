@@ -1,0 +1,168 @@
+.chat-root {
+    position: absolute;
+    left: 2vw;
+    top: 67vh;
+    width: 96%;
+    height: 26vh;
+}
+
+.size-toggle-btn {
+    position: absolute;    
+    margin-top: -8vh;
+    margin-left: 1vw;
+    width: 3.5vw;
+    height: 3.5vw;
+    max-width: 28px;
+    max-height: 28px;
+    padding: 5px !important;
+    border: none !important;
+    cursor: pointer;
+    background-color: transparent !important;
+    font-size: 2rem;
+}
+
+.players-online {
+    position: absolute;    
+    margin-top: -3vh;
+    left: 4vw;
+    font-family: Courier New;
+    color: white;
+    font-size: 1.5vh;
+}
+
+.size-toggle-btn img {
+    max-width: 100%;
+}
+
+.chat {    
+    font-family: Courier New !important;
+}
+
+.chat {
+    background-color: rgba(0.5,0.5,0.5,0.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    /*overflow: hidden;*/
+}
+
+.chat-body-wrapper {
+    width: 100%;
+    height: 19vh;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.chat-body-scroll {
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    color: lightgrey;
+    word-wrap: inherit;
+    word-break: inherit;
+}
+
+.chat-body {
+    width: 100%;
+    height: 100%;   
+    display: table;    
+    padding: 5px;
+    pointer-events: none;
+    word-wrap: inherit;
+    word-break: inherit;
+}
+
+.chat-message {
+    display: table-row;
+    vertical-align: bottom;
+    width: 100%;
+    word-wrap: inherit;
+    word-break: inherit;   
+    overflow: auto;
+}
+
+.chat-message-field {
+    display: table;
+    font-size: 0.8rem;
+}
+
+.chat-display-name {
+    display: table-cell;
+    float: left;
+    font-weight: bold;
+    pointer-events: all;
+}
+
+.chat-msg {
+    float: left;
+    margin-left: 5px;
+    pointer-events: all;
+    user-select: text;
+    word-wrap: break-word;
+}
+
+.emote {
+    font-style: italic;
+}
+
+.chat-input-form {
+    position: relative;
+    width: 100%;
+    height: 7vh;    
+}
+
+.form-list {
+    list-style-type: none;
+    margin: 0;
+    margin-left: 1vw;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.form-list > li {
+    float: left;
+    height: auto;
+    width: 13%;
+}
+
+.msg-input-li {
+    width: 82% !important;
+    height: 1.5rem !important;
+    background-color: black !important;
+    border-color: white !important;
+}
+
+.msg-input {
+    width: 100%;
+    height: 100%;    
+    /*height: 37px !important;*/
+    background-color: black !important;
+    border-color: #777777 !important;
+    color: white !important;
+    font-family: Courier New;
+    font-size: 1rem;
+}
+
+
+.submit-btn, .submit-btn:hover, .submit-btn:focus, .submit-btn:active {
+    margin-top: -0.5vh;
+    margin-left: 2vh;
+    max-width: 70%;
+    /*background-image: url( '../../assets/img/DOM/send_btn.png' ) !important;*/
+    color: black !important;
+    border: 0 none !important;
+    border-radius: 0 !important;
+    background-position: center !important;
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+    font-size: 0.7rem;
+}
+
+.submit-btn-img {
+    max-width: 100%;
+    max-height: 100%;
+}

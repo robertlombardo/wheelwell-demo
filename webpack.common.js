@@ -15,6 +15,9 @@ module.exports = {
         filename: '[name]-bundle.js',
         chunkFilename: '[name]-chunk.js',
     },
+    resolve: {
+        modules: ['node_modules', 'src'],
+    },
     module: {
         rules: [{
             test: /\.html$/,
@@ -55,7 +58,7 @@ module.exports = {
             //favicon: './styles/images/favicon.png',
         }),
         new webpack.ProvidePlugin({
-            m: 'mithril', //Global access
+            m: 'mithril' //Global access
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',

@@ -8,6 +8,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = merge(common, {
     devtool: 'hidden-source-map',
+    resolve: {
+        modules: ['node_modules', 'src'],
+    },
     module: {
         rules: [{
             test: /(\.css|\.scss)$/,

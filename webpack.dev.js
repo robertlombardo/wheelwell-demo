@@ -31,21 +31,21 @@ module.exports = merge(common, {
                 // use style-loader in development
                 fallback: 'style-loader',
             })),
-        }, {
-            test: /\.js$/,
-            enforce: 'pre',
-            exclude: /node_modules/,
-            loader: 'eslint-loader',
-            options: {
-                cache: true,
-                emitWarning: true,
-                // Fail only on errors
-                failOnWarning: false,
-                failOnError: false,
-                // Toggle autofix
-                fix: false,
-                formatter: require('eslint/lib/formatters/stylish'),
-            },
+        // }, {
+        //     test: /\.js$/,
+        //     enforce: 'pre',
+        //     exclude: /node_modules/,
+        //     loader: 'eslint-loader',
+        //     options: {
+        //         cache: true,
+        //         emitWarning: true,
+        //         // Fail only on errors
+        //         failOnWarning: false,
+        //         failOnError: false,
+        //         // Toggle autofix
+        //         fix: false,
+        //         formatter: require('eslint/lib/formatters/stylish'),
+        //     },
         }],
     },
     plugins: [

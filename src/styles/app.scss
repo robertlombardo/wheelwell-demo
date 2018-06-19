@@ -1,17 +1,89 @@
 @import "components/splash-loader.scss";
+@import "components/chat.scss";
+@import "components/chat-max.scss";
+
+/// least-squares-fit
+/// Calculate the least square fit linear regression of provided values
+/// @param {map} $map - A SASS map of viewport width and size value combinations
+/// @return Linear equation as a calc() function
+/// @example
+///   font-size: least-squares-fit((576: 24, 768: 24, 992: 34));
+@function least-squares-fit($map) {
+  
+  // Get the number of provided breakpoints
+  $length: length(map-keys($map));
+  
+  // Error if the number of breakpoints is < 2
+  @if ($length < 2) {
+    @error "leastSquaresFit() $map must be at least 2 values"
+  }
+    
+  // Calculate the Means
+  $resTotal: 0;
+  $valueTotal: 0;
+  @each $res, $value in $map {
+    $resTotal: $resTotal + $res;
+    $valueTotal: $valueTotal + $value;
+  }
+  $resMean: $resTotal/$length;
+  $valueMean: $valueTotal/$length;
+
+  // Calculate some other stuff
+  $multipliedDiff: 0;
+  $squaredDiff: 0;
+  @each $res, $value in $map {
+    
+    // Differences from means
+    $resDiff: $res - $resMean;
+    $valueDiff: $value - $valueMean;
+    
+    // Sum of multiplied differences
+    $multipliedDiff: $multipliedDiff + ($resDiff * $valueDiff);
+    
+    // Sum of squared resolution differences
+    $squaredDiff: $squaredDiff + ($resDiff * $resDiff);
+  }
+
+  // Calculate the Slope
+  $m: $multipliedDiff / $squaredDiff;
+
+  // Calculate the Y-Intercept
+  $b: $valueMean - ($m * $resMean);
+
+  // Return the CSS calc equation
+  @return calc(#{$m*100}vw + #{$b}px);
+}
 
 html, body, #root {
   position: relative;
   margin: 0;
   width: 100%;
   height: 100%;
+  background-color: transparent !important;
+  // $map: (576: 10, 768: 12, 992: 14);
+  // font-size: least-squares-fit($map);
+  font-size: 1.75vmax;
 }
 
 body, #root {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 16px;
   line-height: 1.4;
   color: #333;
   background-color: #FFFFFF;
   overflow-x: hidden;
+}
+
+#pixi-canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.velocity-panel {
+  padding: 3vw;
+  font-family: Courier New;
+}
+
+.velocity-display {
+  color: yellow;
 }
